@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>آزمایشگاه کشاورزی</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link href="css/style.css" rel="stylesheet" type="text/css">
+	<!-- فایل GSAP CDN -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+
+</head>
+<body>
+  <header>
+    <div class="container">
+      <img src="5dar5cm.jpg" alt="لوگوی آزمایشگاه" class="logo" />
+      <h1>آزمایشگاه تخصصی کشاورزی</h1>
+      <p>آب | خاک | برگ | کود</p>
+      <button class="theme-toggle" onclick="toggleTheme()">تغییر تم</button>
+    </div>
+  </header>
+
+  <section class="about container">
+    <h2>درباره ما</h2>
+    <p>خدمات تخصصی تحلیل آب، خاک، برگ و کود برای افزایش بهره‌وری محصولات کشاورزی.</p>
+  </section>
+
+  <section class="services container">
+    <h2>سرویس‌ها</h2>
+      <div class="service-card"><h3>آب</h3><p>تحلیل کیفیت آب</p>
+	    <a href="Untitled-1.html">رفتن به ازمایش اب</a>
+	  </div>
+      <div class="service-card"><h3>خاک</h3><p>بررسی عناصر و مواد مغذی</p></div>
+      <div class="service-card"><h3>برگ</h3><p>تحلیل تغذیه برگی</p></div>
+      <div class="service-card"><h3>کود</h3><p>ارزیابی عناصر کود</p></div>
+    </div>
+  </section>
+
+  <section class="contact container">
+    <h2>رزرو نوبت آزمایش</h2>
+    <form id="appointmentForm" action="https://formsubmit.co/kartiamir103@gmail.com" method="POST">
+      <input type="text" name="name" placeholder="نام کامل" required />
+      <input type="email" name="email" placeholder="ایمیل" required />
+      <input type="date" name="date" required />
+      <select name="time" required>
+        <option value="">انتخاب زمان</option>
+        <option>09:00</option><option>10:00</option><option>11:00</option>
+        <option>14:00</option><option>15:00</option><option>16:00</option>
+      </select>
+      <textarea name="message" placeholder="توضیحات"></textarea>
+      <input type="hidden" name="_captcha" value="false">
+      <input type="hidden" name="_next" value="thanks.html">
+      <button type="submit">ارسال نوبت</button>
+    </form>
+  </section>
+
+  <section class="user-panel container">
+    <h2>پنل کاربر</h2>
+    <ul id="appointmentsList"></ul>
+  </section>
+
+  <footer>
+    <div class="container">
+      <p>تماس: ۰۹۱۳۲۹۱۵۳۷۴ | ایمیل: kartiamir103@gmail.com</p>
+      <p>© 2025 آزمایشگاه کشاورزی</p>
+    </div>
+  </footer>
+
+  <script>
+    function toggleTheme() {
+      document.body.classList.toggle("dark-mode");
+    }
+
+    const appointments = [
+      { date: '2025-05-20', time: '10:00', status: 'تایید شده' },
+      { date: '2025-05-22', time: '14:00', status: 'در انتظار تایید' }
+    ];
+    const list = document.getElementById('appointmentsList');
+    if (list) appointments.forEach(app => {
+      const li = document.createElement('li');
+      li.textContent = `تاریخ: ${app.date}، زمان: ${app.time}، وضعیت: ${app.status}`;
+      list.appendChild(li);
+    });
+  </script>
+	<script>
+  // نمایش انیمیشن برای تمام المان‌هایی که کلاس animate دارند
+  window.addEventListener('load', () => {
+    document.body.classList.add('loaded');
+    gsap.from(".animate", {
+      duration: 1,
+      opacity: 0,
+      y: 30,
+      stagger: 0.2,
+      ease: "power3.out"
+    });
+  });
+</script>
+
+</body>
+</html>
+

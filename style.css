@@ -1,0 +1,191 @@
+@import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;700&display=swap');
+
+:root {
+  --main-bg: #f0f4f8;
+  --glass-bg: rgba(255, 255, 255, 0.25);
+  --main-color: #2c7a7b;
+  --hover-color: #285e61;
+  --light-bg: #ffffff;
+  --text-color: #222;
+  --shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+  --radius: 16px;
+  --blur: 12px;
+}
+
+body {
+  margin: 0;
+  font-family: 'Vazirmatn', sans-serif;
+  background: var(--main-bg);
+  color: var(--text-color);
+  direction: rtl;
+  line-height: 1.8;
+  transition: background 0.4s ease, color 0.4s ease;
+  overflow-x: hidden;
+}
+
+body.dark-mode {
+  --main-bg: #1a202c;
+  --light-bg: #2d3748;
+  --text-color: #f7fafc;
+  --glass-bg: rgba(45, 55, 72, 0.25);
+  --shadow: 0 8px 24px rgba(255, 255, 255, 0.05);
+}
+
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: auto;
+  padding: 2rem 0;
+}
+
+header {
+  background: linear-gradient(to left, #2c7a7b, #285e61);
+  color: white;
+  text-align: center;
+  padding: 4rem 1rem;
+  position: relative;
+  border-bottom-left-radius: var(--radius);
+  border-bottom-right-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+
+.logo {
+  width: 100px;
+  margin-bottom: 1rem;
+  filter: drop-shadow(0 2px 8px rgba(0,0,0,0.3));
+}
+
+.theme-toggle {
+  position: absolute;
+  left: 1rem;
+  top: 1rem;
+  padding: 0.6rem 1.2rem;
+  border: none;
+  background: #fff;
+  color: var(--main-color);
+  font-weight: bold;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s;
+  box-shadow: var(--shadow);
+}
+
+.theme-toggle:hover {
+  background: #f0f0f0;
+  transform: scale(1.05);
+}
+
+h2 {
+  font-size: 2rem;
+  color: var(--main-color);
+  margin-bottom: 1rem;
+}
+
+.about p,
+.services p,
+.contact p {
+  font-size: 1.1rem;
+  color: inherit;
+}
+
+.service-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 2rem;
+}
+
+.service-card {
+  background: var(--glass-bg);
+  backdrop-filter: blur(var(--blur));
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: var(--radius);
+  padding: 2rem;
+  text-align: center;
+  box-shadow: var(--shadow);
+  transition: all 0.4s ease;
+}
+
+.service-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+}
+
+form {
+  background: var(--light-bg);
+  padding: 2rem;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+input, select, textarea {
+  padding: 0.9rem 1rem;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  font-family: inherit;
+  font-size: 1rem;
+  background: white;
+  transition: border-color 0.3s;
+}
+
+input:focus, select:focus, textarea:focus {
+  border-color: var(--main-color);
+  outline: none;
+}
+
+button {
+  background-color: var(--main-color);
+  color: white;
+  font-size: 1rem;
+  padding: 0.9rem 1.2rem;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: all 0.3s ease;
+}
+
+button:hover {
+  background-color: var(--hover-color);
+  transform: scale(1.03);
+}
+
+footer {
+  background: #2d3748;
+  color: white;
+  text-align: center;
+  padding: 1rem;
+  font-size: 0.95rem;
+  margin-top: 3rem;
+  border-top-left-radius: var(--radius);
+  border-top-right-radius: var(--radius);
+}
+
+/* GSAP animation triggers */
+.animate {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.4s ease-out, transform 0.4s ease-out;
+}
+
+body.loaded .animate {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  header h1 {
+    font-size: 1.8rem;
+  }
+
+  .theme-toggle {
+    font-size: 0.85rem;
+  }
+
+  .service-grid {
+    grid-template-columns: 1fr;
+  }
+}
